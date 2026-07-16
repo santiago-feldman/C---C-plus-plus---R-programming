@@ -1,0 +1,12 @@
+tp7: main.o teclado.o imprime.o cell.o
+	gcc main.o  teclado.o imprime.o cell.o -o tp7 -g -Wall
+main.o: main.c teclado.h imprime.h cell.h size.h
+	gcc main.c -c -Wall
+teclado.o: teclado.c teclado.h 
+	gcc teclado.c -c -Wall
+imprime.o: imprime.c imprime.h size.h
+	gcc imprime.c -c -Wall
+cell.o: cell.c cell.h size.h
+	gcc cell.c -c -Wall
+    
+    

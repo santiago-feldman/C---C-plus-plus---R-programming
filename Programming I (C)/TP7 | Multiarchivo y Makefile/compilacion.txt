@@ -1,0 +1,1 @@
+gcc main.c cell.c teclado.c imprime.c -o tp7 -Wall -g
