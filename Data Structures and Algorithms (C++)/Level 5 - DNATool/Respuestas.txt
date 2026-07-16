@@ -1,0 +1,58 @@
+--------------------------Sobre la complejidad espacial y temporal---------------------------------
+
+En primer lugar se explicará en lo que consiste el algoritmo de Hirschberg para poder deducir cuál
+es la complejidad del mismo. Supongamos que se desean alinear dos cadenas s y t, de largo m y n, y 
+suponer que se divide a s en s1 y s2, y a t en t1 y t2. Las transformaciones necesarias para 
+alinear a s y t será la suma de las transformaciones para alinear a s1 con t1 ya s2 con t2. En
+base a esto último mencionado, se puede emplear la siguiente estrategia para alinear las cadenas
+(que es en lo que consiste el algoritmo de Hirschberg):
+
+- Se divide arbitrariamente a s en s1 = s[i, m - 1] y s2 = s[m-i, m - 1].
+- Se ejecuta el algoritmo de Needleman-Wunsch con (s1, t) y (rev(s2), rev(t)) para obtener los 
+puntajes de las últimas filas
+- Se suman ambas filas y se obtiene índice el j que accede al elemento de puntaje máximo. El mismo
+indicará cuál es la división óptima en t, la cual maximiza el puntaje total. Entonces, se divide a
+t en t1 = s[j, n - 1] y t2 = s[n - j, n - 1]
+- Se hacen dos llamadas recursivas al algoritmo con (s1, t1) y (s2, t2) hasta que se detecta que
+alguna de las cadenas tiene menos de dos caracteres. Cuando esto sucede, se obtiene la
+secuencia de transformaciones necesarias para alinearlas y se agrega a una lista global de
+transformaciones (que quedarán en orden una vez se terminan todas las llamadas recursivas)
+
+En vista de lo anteriormente explicado, la complejidad espacial del algoritmo es O(n), pues en
+cada ejecución recursiva sólo se requiere espacio para las dos filas que resultan de llamar al 
+algortimo de Needleman- Wunsch.
+La complejidad temporal es O(mn). Esto se puede deducir de imaginar como si se ubicaran las cadenas 
+s y t en los bordes de una matriz de (m+2)*(n+2) (similar a cómo se modela el algoritmo de
+Needleman -Wunsch). En el primer paso, recursivo, se ejecuta Needleman -Wunsch para la mitad 
+superior e inferior. A partir de las coordenadas (i, j) obtenidas obtenido se divide la matriz en 
+cuatro submatrices y se eligen las matrices superior izquierda e inferior derecha para repetir
+recursivamente el mismo proceso, obteniendo una complejidad temporal total de:
+2*1/2*(m+2)*(n+2) + 2*1/4*(m+2)*(n+2) + ... = O(mn)
+
+--------------Sobre los resultados de las comparaciones de los genomas desconocidos----------------
+
+Los genomas de referencia a los que más se parecen los genomas desconocidos son:
+
+-Mystery Genome 1: Delta B.1.617.2 - OM202516 con un puntaje de 29826
+-Mystery Genome 2: Wuhan reference genome - NC_045512.2 con un puntaje de 29885
+-Mystery Genome 3: Delta B.1.617.2 - OM202516 con un puntaje de 29840
+
+Los resultados de las 21 comparaciones de estos genomas con cada genoma de referencia se pueden
+encontrar en la carpeta resoruces/output
+
+----------------------------Sobre el cambio en el sistema de puntuación----------------------------
+
+En esta situación, aunque cambian los puntajes que resultan de las comparaciones, no hay cambios 
+en las posiciones de similitud a menos que se altere el sistema en forma muy exagerada. Por ejemplo
+si se decide penalizar más las inserciones/deleciones que las sustituciones, recién se evidencian
+cambios significativos si la penalización es -100 puntos y -1 punto respectivamente (o bien, si se
+penalizan con valores cercanos a los mencionados). En esta situación los resultados de las 
+comparaciones son:
+
+-Mystery Genome 1: Wuhan reference genome - NC_045512.2 con un puntaje de 28502
+-Mystery Genome 2: Wuhan reference genome - NC_045512.2 con un puntaje de 29885
+-Mystery Genome 3: Wuhan reference genome - NC_045512.2 con un puntaje de 28516
+
+Notar que la puntuación del Mystery Genome 2 no fue alterada con respecto al caso en el que se
+empleó el puntaje de 1, -1, -1. Esto tiene sentido pues al observar el archivo de salida se ve que
+no hubo ningún gap.
