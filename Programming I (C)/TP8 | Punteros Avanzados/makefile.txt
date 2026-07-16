@@ -1,0 +1,9 @@
+tp8: main.o teclado.o math.o 
+	gcc main.o math.o teclado.o -o tp8 -g -Wall
+main.o: main.c info.h teclado.h math.h 
+	gcc main.c -c -Wall
+teclado.o: teclado.c teclado.h info.h
+	gcc teclado.c -c -Wall
+math.o: math.c info.h math.h
+	gcc math.c -c -Wall
+
