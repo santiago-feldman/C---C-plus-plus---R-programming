@@ -18,27 +18,27 @@ This repository contains the practical assignments done for the following subjec
 
 ## Programming I (C practical assignments and projects)
 
-- **TP0 - printf** (not included)
-- **TP1 - Operators**
-- **TP2 - Program flow**
-- **TP3 - Functions and data input and output** (not included)
-- **TP4 - Arrays** | John Conway's Game of Life
-- **TP5 - Pointers**
-- **TP6 - Review before 1st exam** (not included)
-- **TP7 - Multi-file and Makefile**
-- **TP8 - Advanced pointers** | Calculator
-- **TP9 - Development tools and recursion** (not included)
-- **TP10 - Advanced data types and variable arguments** | my_printf() and simulation of a microprocessor's port and LED connection
-- **TP11 - Allegro library** (not included)
-- **TP12 - Drivers** (not included)
-- **TP13 - Review before 2nd exam** (not included)
-- **TPF - Frogger** | Frogger video game, implemented both with the Allegro library and on a Raspberry Pi 3 B+ (using a dot matrix LED display and a joystick)
+- **TP0 | printf** (not included)
+- **TP1 | Operators**
+- **TP2 | Program flow**
+- **TP3 | Functions and data input and output** (not included)
+- **TP4 | Arrays** - John Conway's Game of Life
+- **TP5 | Pointers**
+- **TP6 | Review before 1st exam** (not included)
+- **TP7 | Multi-file and Makefile**
+- **TP8 | Advanced pointers** - Calculator
+- **TP9 | Development tools and recursion** (not included)
+- **TP10 | Advanced data types and variable arguments** - my_printf() and simulation of a microprocessor's port and LED connection
+- **TP11 | Allegro library** (not included)
+- **TP12 | Drivers** (not included)
+- **TP13 | Review before 2nd exam** (not included)
+- **TPF | Frogger** - Frogger video game, implemented both with the Allegro library and on a Raspberry Pi 3 B+ (using a dot matrix LED display and a joystick)
 
 ## Learning Methodology (R practical assignments)
 
-- **TP1 - Introduction to R**
-- **TP2 - Descriptive statistics**
-- **TP3 - Linear regression** (not included)
+- **TP1 | Introduction to R**
+- **TP2 | Descriptive statistics**
+- **TP3 | Linear regression** (not included)
 
 ### Faculty staff
 - **22.07 Programming I:** Jacoby, Daniel; Magliola, Nicolás; Vacatello, Pablo Daniel
